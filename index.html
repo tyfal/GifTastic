@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Search Giphy but harder!</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://fonts.googleapis.com/css?family=Caudex&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='assets/css/reset.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='assets/css/style.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='assets/javascript/app.js'>
+    </script>
+</head>
+
+<body onload="new gifs()">
+
+    <div class="grid-container">
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">
+            <p id="correct"></p>
+            <p id="wrong"></p>
+        </div>
+        <div class="grid-item main-row"></div>
+        <div class="grid-item main-row" id="main">
+            <form id="gif-form">
+                <lable for="gif-search">Query here: </lable>
+                <input id="gif-search" type="text">
+                <button type="submit" id="newQuery">Add to list!</button>
+            </form>
+            <div id="options"></div>
+            <div id="gifs"></div>
+        </div>
+        <div class="grid-item main-row"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+    </div>
+</body>
+
+</html>
