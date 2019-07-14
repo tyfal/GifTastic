@@ -50,7 +50,7 @@ class gifs {
 
         $(".gif-btn").on("click", function() {
 
-            var urlQuery = "http://api.giphy.com/v1/gifs/search?q="+$(this).text()+"&api_key=JiBoAwx0n2p0NtUEJSBNedgrJrtsGLZU&limit=5";
+            var urlQuery = "http://api.giphy.com/v1/gifs/search?q="+$(this).text()+"&api_key=JiBoAwx0n2p0NtUEJSBNedgrJrtsGLZU&limit=5&rating=PG";
 
             $.ajax({
                 url: urlQuery,
@@ -61,7 +61,7 @@ class gifs {
 
                 for (var i=0; i<response.data.length; i++) {
 
-                    $("#gifs").append("<img src='"+response.data[i].images.fixed_height.url+"'>");
+                    $("#gifs").append("<img class='gif' src='"+response.data[i].images.fixed_height.url+"'>");
 
                 }
             });
