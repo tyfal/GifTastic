@@ -48,20 +48,48 @@ class gifs {
 
         var _self = this;
 
-        $(".gif-btn").on("click", function() {
+        $(".gif-btn").on("click", function () {
 
-            var urlQuery = "http://api.giphy.com/v1/gifs/search?q="+$(this).text()+"&api_key=JiBoAwx0n2p0NtUEJSBNedgrJrtsGLZU&limit=5&rating=PG";
+            var urlQuery = "http://api.giphy.com/v1/gifs/search?q=" + $(this).text() + "&api_key=JiBoAwx0n2p0NtUEJSBNedgrJrtsGLZU&limit=10&rating=PG";
 
             $.ajax({
                 url: urlQuery,
-                method:"GET"
-            }).then(function(response) {
+                method: "GET"
+            }).then(function (response) {
 
                 $("#gifs").empty();
 
-                for (var i=0; i<response.data.length; i++) {
+                for (var i = 0; i < response.data.length; i++) {
 
-                    $("#gifs").append("<img class='gif' src='"+response.data[i].images.fixed_height.url+"'>");
+                    var gifDiv = $("<div>");
+
+                    gifDiv.attr("class", "gif-div");
+
+                    var gifImg = $("<img>");
+
+                    gifImg.attr("class", "gif");
+
+                    gifImg.attr("src", response.data[i].images.fixed_height_still.url);
+
+                    gifImg.attr("hoversrc", response.data[i].images.fixed_height.url);
+
+                    gifImg.mouseenter(function () {
+                        var tempSrc = $(this).attr("src");
+                        $(this).attr("src", $(this).attr("hoversrc"));
+                        $(this).attr("hoversrc", tempSrc);
+                        console.log("hover");
+                    }).mouseleave(function () {
+                        var tempSrc = $(this).attr("src");
+                        $(this).attr("src", $(this).attr("hoversrc"));
+                        $(this).attr("hoversrc", tempSrc);
+                        console.log("leave");
+                    });
+
+                    gifDiv.append(gifImg);
+
+                    gifDiv.append("<p>Rating: " + response.data[i].rating + "</p>");
+
+                    $("#gifs").append(gifDiv);
 
                 }
             });

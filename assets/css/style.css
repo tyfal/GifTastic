@@ -86,3 +86,20 @@ input {
   color: silver;
   font-size: 15px;
 }
+
+#gifs {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.gif-div {
+  margin: 5px;
+  border: solid 1px silver;
+  height: 300px;
+  width: 300px;
+  padding: 5px;
+}
+
+p {
+  z-index: 100;
+}
