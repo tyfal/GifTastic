@@ -104,6 +104,11 @@ p {
   z-index: 100;
 }
 
+#get-more-btn {
+  position: fixed;
+  bottom: 25px;
+}
+
 @media screen and (max-width: 1200px) {
   #gifs {
     display: grid;
