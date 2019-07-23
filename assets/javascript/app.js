@@ -52,7 +52,7 @@ class gifs {
 
         $(".gif-btn").on("click", function () {
 
-            var urlQuery = "http://api.giphy.com/v1/gifs/search?q=" + $(this).text() + "&api_key=JiBoAwx0n2p0NtUEJSBNedgrJrtsGLZU&limit=10&rating=PG&offset=" + _self.offset;
+            var urlQuery = "https://api.giphy.com/v1/gifs/search?q=" + $(this).text() + "&api_key=JiBoAwx0n2p0NtUEJSBNedgrJrtsGLZU&limit=10&rating=PG&offset=" + _self.offset;
 
             var button = this;
 
@@ -97,7 +97,7 @@ class gifs {
 
                 }
 
-                $("#get-more-div").append("<button id='get-more-btn'>Get mo'?</button>");
+                $("#get-more-div").append("<a href='#section-0'><button id='get-more-btn'>Get mo'?</button></a>");
 
                 var _selfception = _self;
 
@@ -121,6 +121,8 @@ class gifs {
 
         var urlQuery = "http://api.giphy.com/v1/gifs/search?q=" + $(button).text() + "&api_key=JiBoAwx0n2p0NtUEJSBNedgrJrtsGLZU&limit=10&rating=PG&offset=" + this.offset;
 
+        var _self = this;
+
         $.ajax({
             url: urlQuery,
             method: "GET"
@@ -131,6 +133,12 @@ class gifs {
             for (var i = 0; i < response.data.length; i++) {
 
                 var gifDiv = $("<div>");
+
+                // revisit
+                if (i===0) {
+                    gifDiv.attr("id", "section-"+_self.offset);
+                    $("a").attr("href","#section-"+_self.offset);
+                }
 
                 gifDiv.attr("class", "gif-div");
 
